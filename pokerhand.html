@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>poker hand helper</title>
+  </head>
+  <body>
+    <script>
+      const sb = {
+        openRaise: ["AA", "KK", "QQ", "JJ", "AQs", "AJs", "KQs", "77"],
+        call3bet: ["AA", "QQ", "JJ", "AKs", "AKo", "KQs"],
+        call4bet: ["AA", "KK", "QQ"],
+      };
+      const bb = {
+        openRaise: ["AA", "KK", "QQ", "JJ", "AQs", "AJs", "KQs", "77"],
+        call3bet: ["AA", "QQ", "JJ", "AKs", "AKo", "KQs"],
+        call4bet: ["AA", "KK", "QQ"],
+      };
+      const utg = {
+        openRaise: ["AA", "KK", "QQ", "JJ", "AQs", "AJs", "KQs", "77"],
+        call3bet: ["AA", "QQ", "JJ", "AKs", "AKo", "KQs"],
+        call4bet: ["AA", "KK", "QQ"],
+      };
+      const mp = {
+        openRaise: ["AA", "KK", "QQ", "JJ", "AQs", "AJs", "KQs", "77"],
+        call3bet: ["AA", "QQ", "JJ", "AKs", "AKo", "KQs"],
+        call4bet: ["AA", "KK", "QQ"],
+      };
+
+      const tabla = { sb, bb, utg, mp };
+
+      // funciones nativas para manipular arrays
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+      // Optional chaining --> (?.)
+      
+      let manosPreflop = (mano, posicion) => {
+        let mensajeError="";
+        let hero = tabla[posicion] ?? (mensajeError="Posicion no valida ");
+        if (hero?.openRaise?.includes(mano)) {
+          if (hero?.call3bet?.includes(mano)) {
+            if (hero?.call4bet?.includes(mano)) {
+              return `Esta mano: ${mano} de (${posicion}) esta para Open raise, call 3bet, call 4bet`;
+            }
+            return `Esta mano: ${mano} de (${posicion}) esta para Open raise, call 3bet`;
+          }
+          return `Esta mano: ${mano} de (${posicion}) es para Open raise`;
+        }
+        return mensajeError+" no son cartas de open raise";
+      };
+      console.log(manosPreflop("A2", "utg"));
+      console.log(manosPreflop("AA", "uteg"));
+      console.log(manosPreflop("AA", "mp"));
+    </script>
+  </body>
+</html>

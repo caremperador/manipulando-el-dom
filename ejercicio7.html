@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi lista de películas</title>
+</head>
+<body>
+    <!-- Aquí es donde el usuario podrá buscar películas por género -->
+    <h1>Mi lista de películas</h1>
+    <input id="genero" type="text" placeholder="Buscar por género">
+    <button onClick="buscarPorGenero()">Buscar</button>
+    <!-- Este es el contenedor donde se mostrarán las películas -->
+    <div id="peliculas"></div>
+
+    <script>
+        // Creamos un array de objetos, donde cada objeto representa una película
+        let peliculas = [
+            { titulo: 'The Godfather', director: 'Francis Ford Coppola', año: 1972, genero: 'Drama' },
+            { titulo: 'Star Wars', director: 'George Lucas', año: 1977, genero: 'Sci-Fi' },
+            { titulo: 'The Matrix', director: 'The Wachowski Brothers', año: 1999, genero: 'Sci-Fi' }
+            // Puedes añadir tantas películas como quieras
+        ];
+
+        // Esta función toma un array de películas y las muestra en la página
+        function mostrarPeliculas(peliculas) {
+            // Obtenemos el contenedor donde se mostrarán las películas
+            let contenedor = document.getElementById('peliculas');
+            // Limpiamos el contenedor antes de agregar nuevas películas
+            contenedor.innerHTML = '';
+            // Recorremos el array de películas
+            peliculas.forEach(pelicula => {
+                // Para cada película, creamos un nuevo div
+                let peliculaDiv = document.createElement('div');
+                // Añadimos el título, director, año y género de la película al div
+                peliculaDiv.textContent = `${pelicula.titulo} - ${pelicula.director} (${pelicula.año}) - ${pelicula.genero}`;
+                // Añadimos el div al contenedor
+                contenedor.appendChild(peliculaDiv);
+            });
+        }
+
+        // Esta función permite al usuario buscar películas por género
+        function buscarPorGenero() {
+            // Obtenemos el género que el usuario ingresó
+            let genero = document.getElementById('genero').value;
+            // Filtramos el array de películas para incluir solo las películas del género ingresado
+            let peliculasFiltradas = peliculas.filter(pelicula => pelicula.genero === genero);
+            // Mostramos las películas filtradas en la página
+            mostrarPeliculas(peliculasFiltradas);
+        }
+
+        // Cuando se carga la página, mostramos todas las películas
+        mostrarPeliculas(peliculas);
+    </script>
+</body>
+</html>

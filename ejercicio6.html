@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejercicios</title>
+  </head>
+  <body>
+    <script>
+      const libros = [
+        {
+          titulo: "El señor de los anillos",
+          autor: "J.R.R. Tolkien",
+          año: 1954,
+        },
+        {
+          titulo: "El hobbit",
+          autor: "J.R.R. Tolkien",
+          año: 1937,
+        },
+        {
+          titulo: "El silmarillion",
+          autor: "J.R.R. Tolkien",
+          año: 1977,
+        },
+      ];
+      let mostrar = (numero) => {
+        for (let i = 0; i < numero.length; i++) {
+          console.log(
+            "Titulo: " + numero[i].titulo + ", Autor: " + numero[i].autor
+          );
+        }
+      };
+      mostrar(libros);
+
+      let filtrarLibros = (libros) => {
+        return libros.filter((libro) => libro.año < 2000);
+      };
+      let librosAntiguos = filtrarLibros(libros);
+      console.log(librosAntiguos);
+    </script>
+  </body>
+</html>

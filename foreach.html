@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let personas = [
+        { nombre: "Juan", edad: 22 },
+        { nombre: "Ana", edad: 27 },
+        { nombre: "Carlos", edad: 35 },
+        { nombre: "Belen", edad: 30 },
+        { nombre: "Javier", edad: 19 },
+        { nombre: "Maria", edad: 25 },
+      ];
+      // Paso 1: Calcular la edad promedio
+
+      // La función 'reduce' itera a través de cada elemento del array. En cada iteración, toma un 'acumulador' (en este caso, 'total') y el elemento actual del array (en este caso, 'persona').
+      // Inicialmente, el 'acumulador' es igual al segundo argumento que pasamos a 'reduce', que es 0.
+      // En cada iteración, la función de flecha suma la 'edad' de la 'persona' actual al 'total'.
+      // El resultado de esta suma se convierte en el nuevo valor del 'acumulador' para la siguiente iteración.
+      // Al final, 'reduce' devuelve la suma total de todas las edades.
+      let sumaDeEdades = personas.reduce(
+        (total, persona) => total + persona.edad,
+        0
+      );
+
+      // Luego, para obtener la edad promedio, dividimos la 'sumaDeEdades' por el número de personas.
+      // 'personas.length' nos da el número de elementos en el array 'personas', que es el número total de personas.
+      let edadPromedio = sumaDeEdades / personas.length;
+
+      // Paso 2: Iterar sobre el array y agregar el campo 'estado'
+
+      // 'forEach' es un método que ejecuta una función para cada elemento en el array.
+      // Aquí, la función que le pasamos toma un elemento del array (una 'persona') como argumento.
+      personas.forEach((persona) => {
+        // Usamos el operador 'typeof' para verificar si 'persona.edad' es un número. Esta es una comprobación de seguridad en caso de que 'edad' no sea un número por algún motivo.
+        // Luego, usamos el operador '&&' (AND lógico) para verificar si 'persona.edad' es mayor que 'edadPromedio'.
+        // Si ambas condiciones son verdaderas, entonces usamos el operador ternario '?:' para asignar el valor 'mayor' al campo 'estado' de la 'persona'.
+        // Si alguna de las condiciones no es verdadera, entonces asignamos el valor 'menor' al campo 'estado'.
+        persona.estado =
+          typeof persona.edad === "number" && persona.edad > edadPromedio
+            ? "mayor"
+            : "menor";
+      });
+
+      // Finalmente, usamos 'console.log' para imprimir el array 'personas' en la consola. Esto nos permite ver el resultado de nuestra operación.
+      console.log(personas);
+    </script>
+  </body>
+</html>

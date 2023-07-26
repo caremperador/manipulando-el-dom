@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promedio nota estudiantes</title>
+  </head>
+  <body>
+    <script>
+      let estudiantes = [
+        { nombre: "Juan", notas: [80, 85, 90] },
+        { nombre: "Ana", notas: [85, 90, "95"] },
+        { nombre: "Carlos", notas: [90, 92, 88] },
+      ];
+      let estudiante
+      let calcularPromedio = (notas) =>{
+        let suma = 0;
+        for (let i = 0; i < notas.length; i++) {
+          if (typeof notas[i] !== "number") {
+            throw new Error("La nota debe ser un numero");
+          }
+          suma += notas[i];
+        }
+        return suma / notas.length;
+      }
+      console.log(estudiantes[0].notas[0]);
+
+    </script>
+  </body>
+</html>

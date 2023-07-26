@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejercicio 9</title>
+  </head>
+  <body>
+    <script>
+      function Libro(titulo, autor, anioPublicacion) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anioPublicacion = anioPublicacion;
+      }
+      Libro.prototype.ventas=1200;
+      Libro.prototype.getResumen = function () {
+        return `${this.titulo} fue escrito por ${this.autor} en el año ${this.anioPublicacion}`;
+      };
+      let miLibro = new Libro("El Padrino", "Francis Ford Coppola", 1972);
+      miLibro["inversion"]=5000;
+      console.log(miLibro);
+      console.log(miLibro.ventas);
+      console.log(miLibro.getResumen());
+    </script>
+  </body>
+</html>

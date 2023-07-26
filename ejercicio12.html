@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //ejercicio 1
+      function contarCartasteres(texto) {
+        return console.log(texto.length);
+      }
+      //ejercicio 2
+      function cortarCartasteres(texto, numero) {
+        return console.log(texto.slice(0, numero));
+      }
+      //ejercicio 3
+      let arrayPalabras = [];
+      function separarPalabras(texto) {
+        let palabras = texto.split(" ");
+        for (let i = 0; i < palabras.length; i++) {
+          arrayPalabras.push(palabras[i]);
+        }
+        return console.log(arrayPalabras);
+      }
+      function repetir(texto, veces) {
+        for (let i = 0; i <= veces; i++) {
+          console.log(texto);
+        }
+      }
+      contarCartasteres("Hola Mundo"); //ejercicio 1
+      cortarCartasteres("Hola Mundo", 4); //ejercicio 2
+      separarPalabras("hola que tal"); //ejercicio 3
+      repetir("Hola Mundo", 3); //ejercicio 4
+    </script>
+  </body>
+</html>

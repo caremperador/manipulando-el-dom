@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Definimos nuestro array de libros. Cada libro es un objeto con propiedades.
+      let libros = [
+        {
+          titulo: "1984",
+          autor: "George Orwell",
+          añoPublicacion: 1949,
+          estaPrestado: true,
+        },
+        {
+          titulo: "Cien años de soledad",
+          autor: "Gabriel García Márquez",
+          añoPublicacion: 1967,
+          estaPrestado: true,
+        },
+        {
+          titulo: "El gran Gatsby",
+          autor: "F. Scott Fitzgerald",
+          añoPublicacion: 1956, // Este libro tiene un año de publicación inválido.
+          estaPrestado: false,
+        },
+      ];
+
+      // Definimos una función que toma un array de libros y devuelve un array de los libros prestados.
+      let librosPrestados = (libros) => {
+        // Inicializamos un array vacío para almacenar los libros prestados.
+        let prestados = [];
+
+        // Iteramos sobre el array de libros con un bucle for.
+        for (let i = 0; i < libros.length; i++) {
+          // Comprobamos si el año de publicación del libro actual es un número.
+          // Si no lo es, lanzamos un error.
+          if (typeof libros[i].añoPublicacion !== "number") {
+            throw new Error(
+              `El libro '${libros[i].titulo}' no tiene un año de publicación válido.`
+            );
+          }
+
+          // Si el libro actual está prestado, lo añadimos al array de libros prestados.
+          if (libros[i].estaPrestado) {
+            prestados.push(libros[i]);
+          }
+        }
+
+        // Al final de la función, devolvemos el array de libros prestados.
+        return prestados;
+      };
+
+      // Intentamos ejecutar la función librosPrestados y hacer log de su resultado.
+      try {
+        console.log(librosPrestados(libros));
+      } catch (error) {
+        // Si ocurre algún error durante la ejecución de la función, lo capturamos aquí y lo mostramos en la consola.
+        console.log("Ha ocurrido un error: " + error.message);
+      }
+     
+      
+
+    </script>
+  </body>
+</html>

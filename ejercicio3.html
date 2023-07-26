@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejercicio 3</title>
+  </head>
+  <body>
+    <h1>**Ejercicio 3: Días de la semana**</h1>
+      <p>Crea un objeto donde las claves sean los días de la semana y los valores sean "laborable" o "fin de semana". Luego, crea una función de flecha que tome un día de la semana y devuelva si es laborable o fin de semana utilizando el objeto y operadores ternarios.</p>
+    <script>
+     // Creamos un objeto que asocia cada día de la semana con su tipo (laborable o fin de semana).
+const tipoDeDia = {
+  'lunes': 'laborable',
+  'martes': 'laborable',
+  'miércoles': 'laborable',
+  'jueves': 'laborable',
+  'viernes': 'laborable',
+  'sábado': 'fin de semana',
+  'domingo': 'fin de semana'
+}
+
+// Creamos una función de flecha que determina si un día es laborable o de fin de semana.
+const esLaborable = (dia) => {
+  // Utilizamos un operador ternario para verificar si el día existe en el objeto.
+  return tipoDeDia[dia] == "laborable" ? "laborable" : tipoDeDia[dia] == "fin de semana" ? "fin de semana" : "Día inválido";
+}
+
+// Llamamos a la función con varios días para probarla.
+console.log(esLaborable('pelota'));  // Imprime: 'laborable'
+console.log(esLaborable('sábado'));  // Imprime: 'fin de semana'
+console.log(esLaborable('martes'));  // Imprime: 'laborable'
+console.log(esLaborable('domingo'));  // Imprime: 'fin de semana'
+console.log(esLaborable('miércoles'));  // Imprime: 'laborable'
+console.log(esLaborable('día inválido'));  // Imprime: 'Día inválido'
+
+    </script>
+
+
+
+
+  </body>
+</html>

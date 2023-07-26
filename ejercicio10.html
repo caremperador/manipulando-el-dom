@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejercicio 10</title>
+  </head>
+  <body>
+    <h1>Ejercicio 10</h1>
+    <script>
+      // Primero, definimos la función constructora Persona.
+      function Persona(nombre, edad) {
+        this.nombre = nombre; // La propiedad 'nombre' del objeto que se está creando se establece al valor del argumento 'nombre'.
+        this.edad = edad; // La propiedad 'edad' del objeto que se está creando se establece al valor del argumento 'edad'.
+      }
+      // Creamos un array de personas utilizando la función constructora Persona.
+      let personas = [
+        new Persona("Juan", 30), // Crea una nueva persona llamada Juan de 30 años.
+        new Persona("Ana", 20), // Crea una nueva persona llamada Ana de 20 años.
+        new Persona("Carlos", 40), // Crea una nueva persona llamada Carlos de 40 años.
+      ];
+      // Usamos la función 'reduce' para encontrar la persona de mayor edad.
+      // La función 'reduce' toma dos argumentos: una función y un valor inicial para el "acumulador".
+      // En este caso, la función compara la edad de la persona actual (persona.edad) con la edad de la persona que hasta ahora es la mayor (mayor.edad).
+      // Si la persona actual es mayor, entonces la función devuelve esa persona (es decir, 'persona' se convierte en el nuevo 'mayor').
+      // Si la persona actual no es mayor, entonces la función devuelve la persona mayor que ya tenía (es decir, 'mayor' sigue siendo 'mayor').
+      let personaMayor = personas.reduce(function (mayor, persona) {
+        if (persona.edad > mayor.edad) {
+          return persona;
+        } else {
+          return mayor;
+        }
+      });
+      // Finalmente, imprimimos el nombre de la persona de mayor edad.
+      console.log(personaMayor.nombre); // Imprime: 'Carlos'
+    </script>
+  </body>
+</html>

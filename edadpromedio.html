@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edad promedio</title>
+  </head>
+  <body>
+    <script>
+      let estudiantes = [
+        { nombre: "John", edad: true },
+        { nombre: "Mike", edad: 22 },
+        { nombre: "Steven", edad: 23 },
+        { nombre: "Joe", edad: 24 },
+      ];
+      let edadPromedio = (estudiantes) => {
+        let edadTotal = 0;
+        for (i = 0; i < estudiantes.length; i++) {
+          if (typeof estudiantes[i].edad !== "number") {
+            throw new Error(
+              "La edad de: " + estudiantes[i].nombre + " debe ser un numero"
+            );
+          }
+          edadTotal += estudiantes[i].edad;
+        }
+        return edadTotal / estudiantes.length;
+      };
+      try {
+        console.log(edadPromedio(estudiantes));
+      } catch (error) {
+        console.log(error.message);
+      }
+    </script>
+  </body>
+</html>

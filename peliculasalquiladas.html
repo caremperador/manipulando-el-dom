@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>peliculas alquiladas.html</title>
+  </head>
+  <body>
+    <script>
+      let peliculas = [
+        {
+          titulo: "El Padrino",
+          director: "Francis Ford Coppola",
+          añoDeEstreno: 1972,
+          estaAlquilada: true,
+        },
+        {
+          titulo: "Pulp Fiction",
+          director: "Quentin Tarantino",
+          añoDeEstreno: 1994,
+          estaAlquilada: false,
+        },
+        {
+          titulo: "2001: A Space Odyssey",
+          director: "Stanley Kubrick",
+          añoDeEstreno: 1968,
+          estaAlquilada: true,
+        },
+      ];
+      let peliculasAlquiladas = (peliculas) => {
+        let alquiladas = [];
+        for (i = 0; i < peliculas.length; i++) {
+          if (peliculas[i].estaAlquilada) {
+            alquiladas.push(peliculas[i].titulo);
+          }
+        }
+        for (const titulo of alquiladas) {
+          console.log(titulo);
+        }
+        return alquiladas;
+      };
+      peliculasAlquiladas(peliculas);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulacion del DOM</title>
+  </head>
+  <body>
+    <h1 id="titulo1">Manipulando el DOM</h1>
+    <h1 id="titulo2">Calculadora</h1>
+    <form>
+      <input id="calculo1" placeholder="Escribe algo aqui" />
+      <input id="calculo2" placeholder="Escribe algo aqui" />
+      <button id="btnCalcular">Calcular</button>
+    </form>
+    <div id="contenedor"></div>
+
+    <script>
+      let contenedor = document.querySelector("#contenedor");
+      let input1 = document.querySelector("#calculo1");
+      let input2 = document.querySelector("#calculo2");
+      let titulo1 = document.querySelector("#titulo1");
+      let titulo2 = document.querySelector("#titulo2");
+      let btn = document.querySelector("#btnCalcular");
+
+      btn.addEventListener("click", sumarValues);
+      function sumarValues(event) {
+        // Prevenir la recarga de la página
+        event.preventDefault();
+
+        const sumaInputs = parseFloat(input1.value) + parseFloat(input2.value);
+        contenedor.innerText = "Resultado: " + sumaInputs;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos</title>
+  </head>
+  <body>
+    <script>
+      // Declaramos un array de objetos, donde cada objeto representa un producto con su nombre, precio y stock.
+      let productos = [
+        { nombre: "Laptop", precio: 1000, stock: 5 },
+        { nombre: "Mouse", precio: 20, stock: 10 },
+        { nombre: "Teclado", precio: 50, stock: 0 },
+      ];
+
+      // Declaramos una función llamada 'comprarProducto'. Esta es una función de flecha que toma dos argumentos:
+      // 'nombreProducto' y 'cantidad'.
+      let comprarProducto = (nombreProducto, cantidad) => {
+        // Comprobamos si 'cantidad' no es un número.
+        // Si no es un número, lanzamos un error.
+        if (typeof cantidad !== "number") {
+          throw new Error("La cantidad debe ser un número.");
+        }
+
+        // Iteramos sobre la lista de productos con un bucle 'for'.
+        for (let i = 0; i < productos.length; i++) {
+          // Si el nombre del producto en la lista coincide con 'nombreProducto'...
+          if (productos[i].nombre === nombreProducto) {
+            // Si la 'cantidad' solicitada es mayor que el 'stock' del producto...
+            // devolvemos una cadena indicando que no hay suficiente stock.
+            // Si no, devolvemos una cadena con el costo total (precio del producto multiplicado por la cantidad).
+            return cantidad > productos[i].stock
+              ? `No hay suficiente stock de ${nombreProducto}.`
+              : `El costo total es $${productos[i].precio * cantidad}.`;
+          }
+        }
+        // Si el producto no se encuentra en la lista, devolvemos una cadena indicando esto.
+        return `El producto ${nombreProducto} no se encuentra en la lista.`;
+      };
+
+      // Utilizamos un bloque 'try' para capturar cualquier error que pueda lanzar la función 'comprarProducto'.
+      try {
+        // Llamamos a la función 'comprarProducto' con diferentes argumentos y mostramos los resultados en la consola.
+        console.log(comprarProducto("Laptop", 3));
+        console.log(comprarProducto("Teclado", 1));
+        console.log(comprarProducto("Laptop", "3")); // Aquí se lanzará un error porque "3" no es un número.
+        console.log(comprarProducto("Celular", 1)); // Aquí se mostrará que el producto no se encuentra en la lista.
+      } catch (error) {
+        // Si se lanza un error, mostramos el mensaje del error en la consola.
+        console.log(error.message);
+      }
+    </script>
+  </body>
+</html>

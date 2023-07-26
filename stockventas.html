@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stock ventas</title>
+  </head>
+  <body>
+    <script>
+      let productos = [
+        { nombre: "push up", precio: 35, stock: 10 },
+        { nombre: "tanga", precio: 25, stock: 20 },
+        { nombre: "cola less", precio: 10, stock: 30 },
+        { nombre: "corpiño", precio: 15, stock: 40 },
+      ];
+      let totalStock = (productos) => {
+        let valorTotal = 0;
+        for (i = 0; i < productos.length; i++) {
+          valorTotal += productos[i].stock * productos[i].precio;
+        }
+        return valorTotal;
+      };
+      console.log(totalStock(productos));
+    </script>
+  </body>
+</html>
